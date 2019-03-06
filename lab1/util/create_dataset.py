@@ -1,4 +1,4 @@
-import midi_manipulation
+from .midi_manipulation import midiToNoteStateMatrix
 import numpy as np
 import glob
 
@@ -9,7 +9,7 @@ def create_dataset(min_length):
     encoded_songs = []
     discarded = 0
     for song in songs:
-        encoded_song = midi_manipulation.midiToNoteStateMatrix(song)
+        encoded_song = midiToNoteStateMatrix(song)
         encoded_song = make_one_hot_notes(encoded_song)
         if len(encoded_song) >= min_length:
             encoded_songs.append(encoded_song)

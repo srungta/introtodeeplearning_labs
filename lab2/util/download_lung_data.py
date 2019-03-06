@@ -1,4 +1,4 @@
-from urllib2 import urlopen
+from urllib.request import urlopen
 import os
 
 urls = {'pneumothorax_test':'https://www.dropbox.com/s/x74ykyivipwnozs/pneumothorax_test.h5?dl=1',
@@ -6,7 +6,7 @@ urls = {'pneumothorax_test':'https://www.dropbox.com/s/x74ykyivipwnozs/pneumotho
 
 data_dir = 'lung_data/'
 
-for (name,url) in urls.iteritems():
+for (name,url) in urls.items():
     if not os.path.isfile(data_dir+name+'.h5'):
         print('Downloading '+name+'...')
         u = urlopen(url)
